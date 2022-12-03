@@ -1,0 +1,29 @@
+<html> 
+  <head><title> NodeJS File Upload Example </title></head> 
+  <body>
+  
+	 <script>
+	  function validateFields(){
+        var userid = document.getElementById("userid");
+        var receiptno = document.getElementById("receiptno");
+        var fileupload = document.getElementById("fileupload");
+		if( userid && userid.value && receiptno && receiptno.value && fileupload && fileupload.value) {
+			return true;
+		} else {
+			alert("Fields cannot be empty!");
+			return false;
+		};
+	 }
+    </script>
+	
+    <form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data" id="uploadform" onsubmit="return validateFields();">
+      User Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="user-id" id="userid"><br/>
+      Receipt No <input type="text" name="receipt-no" id="receiptno">
+      <br>
+      <!-- HTML5 file upload selector-->
+      <input type="file" name="fileupload" id="fileupload">
+      <br>
+      <input type="submit" name="upload" id="upload">
+    </form>
+  </body> 
+</html>
